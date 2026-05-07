@@ -54,6 +54,175 @@ const sampleProducts = (adminId) => [
     images: [{ public_id: 'sample_5', url: 'https://via.placeholder.com/600x600?text=Bag' }],
     stock: 40, isFeatured: false, createdBy: adminId,
   },
+
+  // const sampleProducts = (adminId) => [
+
+  // ELECTRONICS
+  {
+    name: 'iPhone 15 Pro',
+    description: 'Latest Apple flagship smartphone with A17 Pro chip.',
+    price: 1299,
+    discountPrice: 1199,
+    category: 'Electronics',
+    brand: 'Apple',
+    images: [{
+      public_id: 'sample_1',
+      url: 'https://images.unsplash.com/photo-1695048133142-1a20484d2569'
+    }],
+    stock: 15,
+    isFeatured: true,
+    createdBy: adminId,
+  },
+
+  {
+    name: 'MacBook Air M2',
+    description: 'Lightweight and powerful laptop for productivity.',
+    price: 1499,
+    discountPrice: 1399,
+    category: 'Electronics',
+    brand: 'Apple',
+    images: [{
+      public_id: 'sample_2',
+      url: 'https://images.unsplash.com/photo-1517336714739-489689fd1ca8'
+    }],
+    stock: 10,
+    isFeatured: true,
+    createdBy: adminId,
+  },
+
+  {
+    name: 'Sony WH-1000XM5',
+    description: 'Premium noise cancelling wireless headphones.',
+    price: 399,
+    discountPrice: 349,
+    category: 'Electronics',
+    brand: 'Sony',
+    images: [{
+      public_id: 'sample_3',
+      url: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e'
+    }],
+    stock: 25,
+    isFeatured: false,
+    createdBy: adminId,
+  },
+
+  // CLOTHING
+  {
+    name: 'Oversized Hoodie',
+    description: 'Soft cotton oversized hoodie for everyday wear.',
+    price: 59,
+    discountPrice: 45,
+    category: 'Clothing',
+    brand: 'H&M',
+    images: [{
+      public_id: 'sample_4',
+      url: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab'
+    }],
+    stock: 40,
+    isFeatured: true,
+    createdBy: adminId,
+  },
+
+  {
+    name: 'Slim Fit Jeans',
+    description: 'Comfortable slim fit denim jeans.',
+    price: 79,
+    discountPrice: 65,
+    category: 'Clothing',
+    brand: "Levi's",
+    images: [{
+      public_id: 'sample_5',
+      url: 'https://images.unsplash.com/photo-1542272604-787c3835535d'
+    }],
+    stock: 35,
+    isFeatured: false,
+    createdBy: adminId,
+  },
+
+  // FOOTWEAR
+  {
+    name: 'Nike Air Max',
+    description: 'Stylish and comfortable running shoes.',
+    price: 149,
+    discountPrice: 129,
+    category: 'Footwear',
+    brand: 'Nike',
+    images: [{
+      public_id: 'sample_6',
+      url: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff'
+    }],
+    stock: 30,
+    isFeatured: true,
+    createdBy: adminId,
+  },
+
+  {
+    name: 'Adidas Ultraboost',
+    description: 'High-performance sports footwear.',
+    price: 169,
+    discountPrice: 149,
+    category: 'Footwear',
+    brand: 'Adidas',
+    images: [{
+      public_id: 'sample_7',
+      url: 'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519'
+    }],
+    stock: 20,
+    isFeatured: false,
+    createdBy: adminId,
+  },
+
+  // ACCESSORIES
+  {
+    name: 'Leather Crossbody Bag',
+    description: 'Premium leather bag with modern design.',
+    price: 149,
+    discountPrice: 119,
+    category: 'Accessories',
+    brand: 'LuxLeather',
+    images: [{
+      public_id: 'sample_8',
+      url: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3'
+    }],
+    stock: 18,
+    isFeatured: true,
+    createdBy: adminId,
+  },
+
+  {
+    name: 'Ray-Ban Aviator Sunglasses',
+    description: 'Classic aviator sunglasses with UV protection.',
+    price: 199,
+    discountPrice: 169,
+    category: 'Accessories',
+    brand: 'Ray-Ban',
+    images: [{
+      public_id: 'sample_9',
+      url: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083'
+    }],
+    stock: 22,
+    isFeatured: false,
+    createdBy: adminId,
+  },
+
+  // BOOKS
+  {
+    name: 'Atomic Habits',
+    description: 'Bestselling self-improvement book by James Clear.',
+    price: 19,
+    discountPrice: 15,
+    category: 'Books',
+    brand: 'Penguin',
+    images: [{
+      public_id: 'sample_10',
+      url: 'https://images.unsplash.com/photo-1512820790803-83ca734da794'
+    }],
+    stock: 50,
+    isFeatured: true,
+    createdBy: adminId,
+  },
+
+
   {
     name: 'Stainless Steel Water Bottle',
     description: '32oz double-wall insulated bottle, keeps drinks cold 24hrs or hot 12hrs.',
