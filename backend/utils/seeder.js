@@ -1,0 +1,106 @@
+const dotenv = require('dotenv');
+const mongoose = require('mongoose');
+dotenv.config();
+
+const connectDB = require('../config/db');
+const User = require('../models/User');
+const Product = require('../models/Product');
+const Order = require('../models/Order');
+
+const sampleUsers = [
+  { name: 'Admin User', email: 'admin@ecommerce.com', password: 'Admin1234', role: 'admin' },
+  { name: 'John Doe', email: 'john@example.com', password: 'User1234', role: 'user' },
+  { name: 'Jane Smith', email: 'jane@example.com', password: 'User1234', role: 'user' },
+];
+
+const sampleProducts = (adminId) => [
+  {
+    name: 'Wireless Noise-Cancelling Headphones',
+    description: 'Premium over-ear headphones with active noise cancellation and 30hr battery life.',
+    price: 299.99, discountPrice: 249.99,
+    category: 'Electronics', brand: 'SoundPro',
+    images: [{ public_id: 'sample_1', url: 'https://via.placeholder.com/600x600?text=Headphones' }],
+    stock: 50, isFeatured: true, createdBy: adminId,
+  },
+  {
+    name: 'Classic Oxford Shirt',
+    description: 'Premium cotton Oxford shirt, perfect for business casual occasions.',
+    price: 79.99, discountPrice: null,
+    category: 'Clothing', brand: 'StyleCo',
+    images: [{ public_id: 'sample_2', url: 'https://via.placeholder.com/600x600?text=Shirt' }],
+    stock: 120, isFeatured: true, createdBy: adminId,
+  },
+  {
+    name: 'Running Shoes Pro',
+    description: 'Lightweight performance running shoes with responsive foam cushioning.',
+    price: 129.99, discountPrice: 99.99,
+    category: 'Footwear', brand: 'RunFast',
+    images: [{ public_id: 'sample_3', url: 'https://via.placeholder.com/600x600?text=Shoes' }],
+    stock: 75, isFeatured: true, createdBy: adminId,
+  },
+  {
+    name: 'Smart Watch Series X',
+    description: 'Advanced smartwatch with health monitoring, GPS, and 5-day battery.',
+    price: 399.99, discountPrice: 349.99,
+    category: 'Electronics', brand: 'TechWear',
+    images: [{ public_id: 'sample_4', url: 'https://via.placeholder.com/600x600?text=SmartWatch' }],
+    stock: 30, isFeatured: true, createdBy: adminId,
+  },
+  {
+    name: 'Leather Crossbody Bag',
+    description: 'Genuine leather crossbody bag with multiple compartments.',
+    price: 149.99, discountPrice: null,
+    category: 'Accessories', brand: 'LuxLeather',
+    images: [{ public_id: 'sample_5', url: 'https://via.placeholder.com/600x600?text=Bag' }],
+    stock: 40, isFeatured: false, createdBy: adminId,
+  },
+  {
+    name: 'Stainless Steel Water Bottle',
+    description: '32oz double-wall insulated bottle, keeps drinks cold 24hrs or hot 12hrs.',
+    price: 34.99, discountPrice: null,
+    category: 'Sports', brand: 'HydroMax',
+    images: [{ public_id: 'sample_6', url: 'https://via.placeholder.com/600x600?text=Bottle' }],
+    stock: 200, isFeatured: false, createdBy: adminId,
+  },
+];
+
+const importData = async () => {
+  try {
+    await connectDB();
+    await User.deleteMany();
+    await Product.deleteMany();
+    await Order.deleteMany();
+
+    const users = await User.insertMany(sampleUsers);
+    const adminId = users[0]._id;
+    await Product.insertMany(sampleProducts(adminId));
+
+    console.log('✅ Data imported successfully!');
+    console.log('Admin: admin@ecommerce.com / Admin1234');
+    console.log('User:  john@example.com / User1234');
+    process.exit(0);
+  } catch (error) {
+    console.error('❌ Seeder error:', error);
+    process.exit(1);
+  }
+};
+
+const destroyData = async () => {
+  try {
+    await connectDB();
+    await User.deleteMany();
+    await Product.deleteMany();
+    await Order.deleteMany();
+    console.log('✅ Data destroyed');
+    process.exit(0);
+  } catch (error) {
+    console.error('❌ Error:', error);
+    process.exit(1);
+  }
+};
+
+if (process.argv[2] === '-d') {
+  destroyData();
+} else {
+  importData();
+}
